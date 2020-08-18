@@ -1362,7 +1362,7 @@ div[id^=container] {
 
 /* desktop view for summary table*/
 
-@media screen and (min-device-width: 450px) {
+@media screen and (min-width: 450px) {
   .summaryTable tr {
     display: block;
     float: left;
