@@ -1,0 +1,246 @@
+<html>
+
+<head>
+
+    <script src='External_OTS_Standards.js'></script>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;" />
+    <link href="External_OTS_Standards.css" rel="stylesheet">
+</head>
+</head>
+<div class="bar">
+    <select class="bar__select periodList  dropDownDisabler" name="" id="">
+        <option value="August 2020">August 2020</option>
+    </select>
+</div>
+<div class="report">
+
+    <div class="component" id="SummaryView">
+        <div class="SummaryView__header">
+            <div class="SummaryView__name">
+                <p class="labelCaption">John Doe</p>
+            </div>
+            <div class="summaryView__date">
+                <p class="labelCaption">
+                    Updated: 08/19/2020
+                </p>
+            </div>
+        </div>
+
+
+        <div id="BarChart"></div>
+
+
+
+
+    </div>
+    <div class="component" id="table"></div>
+
+
+    <div class="component">
+        <div class="explore">
+
+
+
+            <a href="index.html">
+                <button class="explore__button buttonDefault buttonSecondary">
+                    Back
+                </button>
+
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    let Criteria1 = [{
+        "seriesName": "Change",
+        "color": "#90ED7D",
+        "negativeColor": "#F45B5B",
+        "zIndex": 0,
+        "yAxisID": 0,
+        "chartType": 'column'
+    }];
+    let chartData = [{
+            "seriesName": "Change",
+            "category": "Gold PPO",
+            "value": 2000
+        },
+        {
+            "seriesName": "Change",
+            "category": "Low Dental",
+            "value": 1000
+        },
+        {
+            "seriesName": "Change",
+            "category": "Gold HMO",
+            "value": -800
+        },
+        {
+            "seriesName": "Change",
+            "category": "High Dental",
+            "value": -700
+        },
+        {
+            "seriesName": "Change",
+            "category": "Platinum PPO",
+            "value": 500
+        },
+
+        {
+            "seriesName": "Change",
+            "category": "Bronze PPO",
+            "value": 200
+        },
+
+
+    ]
+    let rawModel1 = {
+        "container": 'BarChart',
+        "chartTitle": 'Sales Change by Product Category',
+        "chartData": chartData,
+        "legend": false,
+        "stacking": false,
+        "seriesSpecifications": Criteria1,
+        "xAxisTitle": "",
+        "invertedChart": true,
+        "yAxis": [{
+            "title": "Change",
+            "decimal": true,
+            "minValue": "",
+            "type": 'currency',
+            "opposite": '',
+            "reversed": false
+        }]
+    }
+
+
+    let ColumnDetails = [{
+            "ID": 1,
+            "name": 'Account',
+            "field": 'Account',
+            "type": 'text',
+            "drilldownName": '',
+            "parameterField": '',
+            "additionalParameters": [{}],
+            "align": 'left'
+
+        },
+
+
+        {
+            "ID": 2,
+            "name": 'Current Sales',
+            "field": 'Current Sales',
+            "type": 'currency',
+            "drilldownName": '',
+            "parameterField": '',
+            "additionalParameters": [{}],
+            "align": 'right'
+        },
+
+        {
+            "ID": 3,
+            "name": 'Prior Sales',
+            "field": 'Prior Sales',
+            "type": 'currency',
+            "drilldownName": '',
+            "parameterField": '',
+            "additionalParameters": [{}],
+            "align": 'right'
+        },
+        {
+            "ID": 4,
+            "name": 'Amount Difference',
+            "field": 'Amount Difference',
+            "type": 'currency',
+            "drilldownName": '',
+            "parameterField": '',
+            "additionalParameters": [{}],
+            "align": 'right'
+        },
+
+    ]
+
+
+
+
+
+
+
+    let tableData = [{
+            "Account": "Gold PPO",
+            "Current Sales": "7500",
+            "Prior Sales": "5500",
+            "Amount Difference": "2000",
+
+        },
+        {
+            "Account": "Low Dental",
+            "Current Sales": "5000",
+            "Prior Sales": "4000",
+            "Amount Difference": "-1000",
+
+        },
+        {
+            "Account": "Gold HMO",
+            "Current Sales": "10000",
+            "Prior Sales": "10800",
+            "Amount Difference": "-800",
+
+        },
+        {
+            "Account": "High Dental",
+            "Current Sales": "2000",
+            "Prior Sales": "2700",
+            "Amount Difference": "-700",
+
+        },
+        {
+            "Account": "Platinum PPO",
+            "Current Sales": "2000",
+            "Prior Sales": "2500",
+            "Amount Difference": "500",
+
+        },
+        {
+            "Account": "Bronze PPO",
+            "Current Sales": "7500",
+            "Prior Sales": "7700",
+            "Amount Difference": "200",
+
+        },
+
+
+    ]
+
+
+    let rawModelT = {
+        "container": 'table',
+        "data": tableData,
+        "columns": ColumnDetails,
+        "paginationSize": "5",
+        "linkedChartContainer": "BarChart"
+    };
+
+
+
+
+
+
+
+    let config = {
+        "chart": [{
+            "rawModel": rawModel1
+        }],
+        "table": [{
+            "rawModel": rawModelT
+        }],
+        "currencyCode": 'USD',
+        "unit": 'Disputes'
+    };
+    console.log(config);
+    createContent(config);
+</script>
+
+</html>

@@ -72,13 +72,14 @@
 
 			<select class="explore__select inputList dropDownDisabler" name="" id="">
 				<option value="Account">Account</option>
+				<option value="PC">Product Category</option>
 			</select>
-			<a href="l2.html">
-				<button class="explore__button buttonDefault buttonSecondary">
-					Go
-				</button>
 
-			</a>
+			<button class="explore__button buttonDefault buttonSecondary">
+				Go
+			</button>
+
+
 
 		</div>
 	</div>
@@ -149,6 +150,11 @@
 	};
 	console.log(config);
 	createContent(config);
+
+	document.querySelectorAll('.explore__button')[0].addEventListener("click", function () {
+		let dim = document.querySelector('.explore__select');
+		dim.value === "Account" ? window.location.href = "l2.html" : window.location.href = "l2-pc.html";
+	})
 </script>
 
 </html>
